@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>artists-page</title>
+        <link rel="stylesheet" href="/static/styles.css" />
+    </head>
+    <body onload="addArtists('populated')">
+        <script type="text/javascript">
+            function addArtists(id) {
+                var temp = '{{artists_data}}';
+                var ArtistsJS = temp.replaceAll('&#39;','"');
+                const artists_dict = JSON.parse(ArtistsJS);
+                const artists = Object.keys(artists_dict);
+                for (i of artists) {
+                    var artist_string = i + "_string";
+                    var artist_input_string = artist_string + "_input"
+                    var label_for_artist = document.createElement("label");
+                    var image = document.createElement("img");
+                    var image_input = document.createElement("input");
+                    image_input.setAttribute("type","checkbox");
+                    image_input.setAttribute("id",artist_input_string);
+                    image_input.setAttribute("class","artist-image-input");
+                    image_input.setAttribute("name",artist_input_string);
+                    image_input.setAttribute("value",i);
+                    image_input.style.display = "none";
+                    var label_and_image = document.createElement("div");
+                    label_and_image.setAttribute("class","label_and_image");
+                    image.setAttribute("src",artists_dict[i]["image"]);
+                    image.setAttribute("id",artist_string);
+                    image.setAttribute("class","artist-picture");
+                    var label_for_picture = document.createElement("label");
+                    label_for_picture.setAttribute("for",artist_input_string);
+                    label_for_picture.appendChild(image);
+                    label_for_artist.innerHTML = i;
+                    label_for_artist.setAttribute("class","artist-label");
+                    label_and_image.appendChild(image_input);
+                    label_and_image.appendChild(label_for_picture);
+                    var big_div = document.getElementById(id);
+                    label_and_image.appendChild(label_for_artist);
+                    big_div.appendChild(label_and_image);
+                }
+            }
+        </script>
+        <div class="header">
+            <header>Playlist Creator</header>
+        </div>
+        <div class="form_body" id="artist_form_body">
+            <form action="/temp" method="post" id="artists_form" name="artists_form">
+                <div id="populated">
+            
+                </div>
+            </form>
+            <button id="artist_submit" form="artists_form" class="submit_button" type="submit" value="Submit">Next</button>
+        </div>
+    </body>
+</html>
