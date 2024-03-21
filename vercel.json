@@ -1,14 +1,14 @@
  {
      "builds": [
          {
-             "src": "api/project.py",
+             "src": "CS Project/project.py",
              "use": "@vercel/python"
          }
      ],
      "routes": [
          {
              "src": "/(.*)",
-             "dest": "api/project.py"
+             "dest": "CS Project/project.py"
          }
      ]
  }
