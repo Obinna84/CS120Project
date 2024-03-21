@@ -1,14 +1,5 @@
  {
-     "builds": [
-         {
-             "src": "CS-project/project.py",
-             "use": "@vercel/python"
-         }
-     ],
-     "routes": [
-         {
-             "src": "/(.*)",
-             "dest": "CS-project/project.py"
-         }
-     ]
+     "rewrites": [
+    { "source": "/(.*)", "destination": "/CS-project/project" }
+  ]
  }
