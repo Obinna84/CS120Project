@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "CS-project/project.py": {
-      "runtime": "vercel-python@0.0.3"
-    }
-  }
-}
