@@ -78,7 +78,7 @@ def display_artists_page():
     genres = []
     for key in genres_json:
         genres.append(genres_json[key])
-    curr = artists.ArtistList(genres,num_of_songs_in_playlist)
+    curr = ArtistList(genres,num_of_songs_in_playlist)
     artists_displayed = curr.getArtists()
     return render_template("artists.html",artists_data=artists_displayed)
 
