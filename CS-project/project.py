@@ -4,7 +4,7 @@ from flask import Flask, redirect, request, jsonify, session, render_template
 import requests
 import urllib.parse
 import secrets
-#import artists
+import artists
 from datetime import datetime
 import math
 """
