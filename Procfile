@@ -1,1 +1,1 @@
-web: gunicorn project.py:__name__
+web: gunicorn 'project.py':'__name__'
